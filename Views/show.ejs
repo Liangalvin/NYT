@@ -1,0 +1,32 @@
+<html>
+
+  <body>
+  <h2><a href="/books">Return Home</a></h2>
+
+    <h1>Book Selected</h1>
+    <p>Book Title:<%= bookObj['title'] %></p>
+    <p>Written By: <%= bookObj['author'] %></p>
+    <p>Description: <%= bookObj['description'] %></p>
+    <p>ISBN: <%= bookObj['isbn13'] %></p>
+    <p>Book Number: <%= bookObj['id'] %></p>
+
+    <h2>Update The book information(no field will be left incomplete)</h2>
+
+    <form action="/book/<%= bookObj['id'] %>/?_method=PUT" method="post">
+      <input type="hidden" name="_method" value="put"/>
+      <input type="text" name="newTitle" placeholder="Update the Title" required>
+      <input type="text" name="newAuthor" placeholder="Update the Author" required>
+      <input type="text" name="newISBN" placeholder="Update ISBN" required>
+      <input type="text" name="newDescrip" placeholder="Update Description" required>
+      <button>Update the Book</button>
+    </form>
+
+    <h2>Remove The book</h2>
+    <form action="/book/<%= bookObj['id'] %>/?_method=DELETE" method="post" enctype="application/x-www-form-urlencoded">
+      <input type="hidden" name="_method" value="delete">
+      <button>Remove</button>
+    </form>
+
+  </body>
+
+</html>
